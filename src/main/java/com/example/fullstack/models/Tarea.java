@@ -1,8 +1,10 @@
 package com.example.fullstack.models;
 
 
+import java.util.Objects;
+
 public class Tarea {
-    private long id;
+    private Long id;
     private String titulo;
     private boolean completada;
 
@@ -15,7 +17,7 @@ public class Tarea {
         this.completada = completada;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -37,6 +39,18 @@ public class Tarea {
 
     public void setCompletada(boolean completada) {
         this.completada = completada;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Tarea tarea = (Tarea) o;
+        return getId() == tarea.getId() && isCompletada() == tarea.isCompletada() && Objects.equals(getTitulo(), tarea.getTitulo());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getTitulo(), isCompletada());
     }
 
     @Override
