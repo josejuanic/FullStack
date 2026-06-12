@@ -1,0 +1,15 @@
+<h1>
+  Lista de tareas
+</h1>
+
+<ul>
+
+  @for (tarea of tareas; track tarea.id) {
+
+  <li>
+    {{ tarea.titulo }}
+  </li>
+
+  }
+
+</ul>
